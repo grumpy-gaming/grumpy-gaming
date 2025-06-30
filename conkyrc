@@ -50,18 +50,25 @@ ${color goldenrod}Hostname: Grumpy Gaming - RPi 4B (Dev Box)
 ${color goldenrod}Linux Kernel: $kernel
 ${color goldenrod}CPU Details:  $machine, $freq(MHz)
 
-${color}CPU History:  ${color darkgreen}${cpugraph 30,0 0000ff 00ff00}
 ${color}CPU Usage:${color magenta2} $cpu% ${cpubar 11,0}
+${color}CPU History:  ${color darkgreen}${cpugraph 30,0 0000ff 00ff00}
+${color green}CPU Temp: ${alignr}${color white} ${exec vcgencmd measure_temp | cut -d '=' -f 2}
 
-${color}RAM Usage:${color green} $mem ($memperc%) ${membar 11,0}
 ${color}Available RAM:${color green} $memmax
+${color}RAM Usage:${color green} $mem ($memperc%) ${membar 11,0}
 ${color}Swap Usage: ${color0}${execi 2 free -h | grep 'Swap:' | awk '{print $3"/"$2}'} ${color1}${swapbar 11,0}
 
-${color0}NETWORK
+${color blue}NETWORK
 ${color}Local IP: ${alignr}${execi 5 /bin/hostname -I | awk '{print $1}'} #FIXED: Using execi for IP. This should give your primary IP for eth0.
 ${voffset 5}
 ${color}Upload: ${alignr}${upspeed end0} ${totalup end0}
 ${color}Download: ${alignr}${downspeed end0} ${totaldown end0}
+
+${color}File System          ${alignr}used%   ${alignr}used  ${alignr}total${color0}
+${color}/ ${alignr}${color0}${fs_used_perc /}%  ${alignr}${fs_used /}  ${alignr}${fs_size /}
+${color}/var ${alignr}${color0}${fs_used_perc /var}%  ${alignr}${fs_used /var}  ${alignr}${fs_size /var}
+${color}/home ${alignr}${color0}${fs_used_perc /home}%  ${alignr}${fs_used /home}  ${alignr}${fs_size /home}
+${color}/tmp ${alignr}${color0}${fs_used_perc /tmp}%  ${alignr}${fs_used /tmp}  ${alignr}${fs_size /tmp}
 
 $color$stippled_hr
 $alignc${color}Processes:$color $processes  ${color grey}Running:$color $running_processes
