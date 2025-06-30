@@ -46,7 +46,7 @@ override_utf8_locale yes
 use_spacer none
 
 TEXT
-${color goldenrod}Hostname: Grumpy Latitude 7420 - Dev Box # Replace the "" with $color${nodename} or your desired hostname.
+${color goldenrod}Hostname: Grumpy Latitude 7420 - Dev Box # Replace the "" with $color${nodename} or your desired hostname. 
 ${voffset 1}
 ${color goldenrod}Linux Kernel: $kernel
 ${color goldenrod}CPU Details:  $machine, $freq(MHz)
@@ -54,14 +54,14 @@ ${color goldenrod}CPU Details:  $machine, $freq(MHz)
 ${color}CPU Usage:${color magenta2} $cpu% ${cpubar 11,0}
 
 ${color}CPU History:  ${color darkgreen}${cpugraph 30,0 0000ff 00ff00}
-
 #${color green}CPU Temp: ${alignr}${color white} ${exec vcgencmd measure_temp | cut -d '=' -f 2} #for RPi only
 ${color red} CPU Core Temperatures # "#" comment out this entire temp section if using for RPi
 ${voffset 1}
-${color ADD8E6}  Core 1:               ${color 00FFFF}${hwmon 7 temp 1}°C
-${color ADD8E6}  Core 2:               ${color CCFF00}${hwmon 7 temp 2}°C
-${color ADD8E6}  Core 3:               ${color FFA500}${hwmon 7 temp 3}°C
-${color ADD8E6}  Core 4:               ${color FF0000}${hwmon 7 temp 4}°C
+${color ADD8E6}  Core 1:               ${color 00FFFF}${hwmon coretemp temp 1}°C
+${color ADD8E6}  Core 2:               ${color CCFF00}${hwmon coretemp temp 2}°C
+${color ADD8E6}  Core 3:               ${color FFA500}${hwmon coretemp temp 3}°C
+${color ADD8E6}  Core 4:               ${color FF0000}${hwmon coretemp temp 4}°C
+
 
 ${color}Available RAM:${color green} $memmax
 ${color}RAM Usage:${color green} $mem ($memperc%) ${membar 11,0}
