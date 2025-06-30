@@ -46,7 +46,7 @@ override_utf8_locale no
 use_spacer none
 
 TEXT
-${color goldenrod}Hostname: Grumpy Gaming - RPi 4B (Dev Box)
+${color goldenrod}Hostname:"Put_Your_Hostname_Here" # Replace the "" with $color${nodename} or your desired hostname. 
 ${color goldenrod}Linux Kernel: $kernel
 ${color goldenrod}CPU Details:  $machine, $freq(MHz)
 
